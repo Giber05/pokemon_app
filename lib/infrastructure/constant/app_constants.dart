@@ -1,5 +1,5 @@
 class AppConstants {
-  static const isDevelopment = false;
+  static const isDevelopment = true;
 
   static const maxStats = 255;
 }

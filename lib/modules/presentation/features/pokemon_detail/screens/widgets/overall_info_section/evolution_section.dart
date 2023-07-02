@@ -22,7 +22,9 @@ class _EvolutionSection extends StatelessWidget {
             itemBuilder: (_, index) => _buildRow(
               current: pokemon.evolutions[index],
               next: pokemon.evolutions[index + 1],
-              reason: pokemon.evolutionLevels[index].toString(),
+              level: pokemon.evolutionLevels[index] == 0
+                  ? 'Unknown'
+                  : pokemon.evolutionLevels[index].toString(),
             ),
           ),
         ]),
@@ -33,7 +35,7 @@ class _EvolutionSection extends StatelessWidget {
   Widget _buildRow({
     required PokemonModel current,
     required PokemonModel next,
-    required String reason,
+    required String level,
   }) {
     return Row(
       children: <Widget>[
@@ -43,7 +45,7 @@ class _EvolutionSection extends StatelessWidget {
             children: <Widget>[
               Icon(Icons.arrow_forward, color: Colors.grey[200]),
               const SizedBox(height: 7),
-              Text('Level $reason',
+              Text('Level $level',
                   style: const TextStyle(
                       fontSize: 12, fontWeight: FontWeight.bold)),
             ],
@@ -78,6 +80,7 @@ class _PokemonBall extends StatelessWidget {
               color: Colors.grey[200],
             ),
             PokemonImage(
+              useHero: false,
               pokemon: PokemonModel(
                 id: pokemon.id,
                 imageUrl: pokemon.imageUrl,
@@ -89,7 +92,14 @@ class _PokemonBall extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 3),
-        Text(pokemon.name.capitalize()),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            pokemon.name.capitalize(),
+            maxLines: 1,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+        ),
       ],
     );
   }
