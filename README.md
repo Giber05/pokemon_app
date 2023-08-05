@@ -21,8 +21,9 @@ Alternatively, you can use the Flutter IDE plugins like Visual Studio Code or An
 Please note that the screenshots and installation steps provided above are just examples and may vary based on the specific implementation of the application.
 # App Preview 
 
-![image](https://github.com/Giber05/pokemon_app/assets/72600935/dd3a5813-e826-47ae-8330-e9f83b64b334)
-![image](https://github.com/Giber05/pokemon_app/assets/72600935/076b53c9-319c-4631-af26-a3efc0d27b51)
+![image](https://github.com/Giber05/pokemon_app/assets/72600935/80555823-09b0-481b-a72b-9be27b253761)
+![image](https://github.com/Giber05/pokemon_app/assets/72600935/d0096782-4da9-4671-bf93-85b340e522c6)
+![image](https://github.com/Giber05/pokemon_app/assets/72600935/cb018493-f552-455d-948d-5995938be47d)
 ![image](https://github.com/Giber05/pokemon_app/assets/72600935/ac72e583-782f-4e22-bb70-28d61beb2f39)
 ![image](https://github.com/Giber05/pokemon_app/assets/72600935/6c4758b1-9757-4d62-a8fe-7d689397b7e7)
 ![image](https://github.com/Giber05/pokemon_app/assets/72600935/2e871d6d-79ce-4067-9e42-0e6fcdafcc77)
