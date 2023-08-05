@@ -19,7 +19,7 @@ class PokemonsCubit extends Cubit<PokemonsState> {
       final useCaseCall = await _getPokemons(
         GetPokemonsParams(
           page: currentState.currentPage + 1,
-          size: 10,
+          size: 50,
         ),
       );
       useCaseCall.when(
@@ -49,7 +49,7 @@ class PokemonsCubit extends Cubit<PokemonsState> {
     final usecaseCall = await _getPokemons(
       GetPokemonsParams(
         page: 0,
-        size: 10,
+        size: 50,
       ),
     );
     usecaseCall.when(
@@ -67,5 +67,20 @@ class PokemonsCubit extends Cubit<PokemonsState> {
         emit(PokemonsFailed(message: exception.message));
       },
     );
+  }
+
+  void searchPokemons(String pokemonName) {
+    final currentState = state;
+    if (currentState is PokemonsLoaded) {
+      if (pokemonName.isEmpty) {
+        getPokemons();
+      } else {
+        final filteredPokemons = currentState.pokemons.where((pokemon) =>
+            pokemon.name.toLowerCase().contains(pokemonName.toLowerCase()));
+        emit(currentState.copyWith(
+          pokemons: filteredPokemons.toList(),
+        ));
+      }
+    }
   }
 }

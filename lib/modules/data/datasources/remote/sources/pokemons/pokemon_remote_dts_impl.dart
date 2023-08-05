@@ -40,6 +40,7 @@ class PokemonRemoteDtsImpl implements PokemonRemoteDts {
 
   @override
   Future<APIResult<PokemonDetailModel>> getPokemonDetail(int id) async {
+    await getAllPokemonDetails();
     return await _client.get(
       shouldPrint: false,
       path: '/pokemon/$id',
@@ -65,5 +66,18 @@ class PokemonRemoteDtsImpl implements PokemonRemoteDts {
       mapper: (json) => _pokemonEvolutionMapper.fromJSON(json),
       shouldPrint: false,
     );
+  }
+
+  Future<void> getAllPokemonDetails() async {
+    for (var i = 1; i <= 10270; i++) {
+      print('Getting Data for id:$i ');
+      await _client.get(
+        shouldPrint: false,
+        path: '/pokemon/$i',
+        mapper: (json) {
+          return _pokemonDetailMapper.fromJSON(json);
+        },
+      );
+    }
   }
 }

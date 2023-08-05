@@ -1,9 +1,20 @@
 part of '../pokemons_screen.dart';
 
-class _MainContent extends StatelessWidget {
+class _MainContent extends StatefulWidget {
   const _MainContent({
     super.key,
   });
+
+  @override
+  State<_MainContent> createState() => _MainContentState();
+}
+
+class _MainContentState extends State<_MainContent> {
+  TextEditingController _searchController = TextEditingController();
+
+  void _onSearchChanged(String value) {
+    context.read<PokemonsCubit>().searchPokemons(value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +26,14 @@ class _MainContent extends StatelessWidget {
             ImagePath.pokemonLogo,
             width: 200,
           ),
+        ),
+        const SizedBox(height: 24),
+        CustomSearchBar(
+          controller: _searchController,
+          onSubmitted: _onSearchChanged,
+          onReset: () {
+            context.read<PokemonsCubit>().getPokemons();
+          },
         ),
         const SizedBox(height: 24),
         const Expanded(
@@ -98,7 +117,8 @@ class _PokemonGridState extends State<_PokemonGrid> {
                           return PokemonCard(
                             pokemon,
                             onPress: () {
-                              context.router.push( PokemonDetailRoute(id: pokemon.id));
+                              context.router
+                                  .push(PokemonDetailRoute(id: pokemon.id));
                             },
                           );
                         }

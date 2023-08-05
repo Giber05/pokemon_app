@@ -9,6 +9,7 @@ import 'package:pokemon_app/infrastructure/widgets/loading/loading_indicator.dar
 import 'package:pokemon_app/infrastructure/widgets/loading/pika_loading.dart';
 import 'package:pokemon_app/modules/presentation/features/pokemons/cubit/pokemons_cubit.dart';
 import 'package:pokemon_app/modules/presentation/features/pokemons/screens/widgets/pokemon_card.dart';
+import 'package:pokemon_app/modules/presentation/widgets/custom_searchbar.dart';
 import 'package:pokemon_app/modules/presentation/widgets/pokeball_background.dart';
 
 part 'widgets/main_content.dart';
@@ -29,7 +30,7 @@ class PokemonsScreen extends StatelessWidget {
           child: Stack(
             children: [
               ListView(),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
                 child: _MainContent(),
               )
