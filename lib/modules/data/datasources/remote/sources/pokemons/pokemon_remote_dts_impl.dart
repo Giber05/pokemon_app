@@ -40,7 +40,6 @@ class PokemonRemoteDtsImpl implements PokemonRemoteDts {
 
   @override
   Future<APIResult<PokemonDetailModel>> getPokemonDetail(int id) async {
-    await getAllPokemonDetails();
     return await _client.get(
       shouldPrint: false,
       path: '/pokemon/$id',
