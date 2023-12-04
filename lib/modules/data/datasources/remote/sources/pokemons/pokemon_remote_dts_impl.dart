@@ -69,7 +69,6 @@ class PokemonRemoteDtsImpl implements PokemonRemoteDts {
 
   Future<void> getAllPokemonDetails() async {
     for (var i = 1; i <= 10270; i++) {
-      print('Getting Data for id:$i ');
       await _client.get(
         shouldPrint: false,
         path: '/pokemon/$i',

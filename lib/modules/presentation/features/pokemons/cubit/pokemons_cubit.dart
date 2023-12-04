@@ -83,4 +83,6 @@ class PokemonsCubit extends Cubit<PokemonsState> {
       }
     }
   }
+  
 }
+

@@ -289,7 +289,7 @@ class RknHttpClient implements BaseHttpClient {
     debugPrint("====^^^^^^^^^^^^^^^===");
     debugPrint("URL : ${buildFullUrl(url)}");
     debugPrint("Method : ${response.request?.method}");
-    if (requestBody != null) {
+    if (headers != null) {
       debugPrint("====== Headers =====");
       _printJSONSafely(jsonEncode(headers));
     }
